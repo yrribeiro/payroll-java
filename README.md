@@ -1,2 +1,2 @@
 ## Getting Started with Java
-This is a working in progress.
+This is a work in progress.
