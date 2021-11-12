@@ -5,19 +5,18 @@ import objects.Employee;
 public class AddEmployee{
     Scanner scanf = new Scanner(System.in);
 
-    public Employee newEmployee(){
+    public Employee newEmployee(int uniqueID){
         Employee employee = new Employee();
-        System.out.println("~~ Employee ID (6 first digits of your CPF):");
-        employee.setCpf(scanf.nextInt());
-        scanf.nextLine();
+        System.out.println("~~ New employee ID: " + uniqueID);
+        employee.setUniqueID(uniqueID);
 
-        System.out.println("~~ Name:");
+        System.out.println("~~ Name: ");
         employee.setName(scanf.nextLine());
 
-        System.out.println("~~ Address:");
+        System.out.println("~~ Address: ");
         employee.setAddress(scanf.nextLine());
 
-        System.out.println("~~ Job type:\n0 for Hourly\n1 for Salaried\n2 for Comissioned");
+        System.out.println("~~ Job type:\n  0 for Hourly\n  1 for Salaried\n  2 for Comissioned");
         employee.setJobType(scanf.nextInt());
         scanf.nextLine();
 

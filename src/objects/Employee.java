@@ -1,19 +1,19 @@
 package objects;
 
 public class Employee{
-    private int cpf; // six first digits
     private String name;
     private String address;
     private int jobType;
     private int paymentType;
     private Boolean syndicalist;
+    int uniqueID;
 
-    public void setCpf(int cpf) {
-        this.cpf = cpf;
+    public void setUniqueID(int uniqueID) {
+        this.uniqueID = uniqueID;
     }
 
-    public int getCpf() {
-        return cpf;
+    public int getUniqueID() {
+        return uniqueID;
     }
 
     public void setName(String name) {

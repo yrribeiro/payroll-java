@@ -1,13 +1,14 @@
 import java.util.Scanner;
 import java.util.LinkedList;
 import objects.Employee;
-import utils.AddEmployee;
+import utils.*;
 import static utils.ListAllEmployee.listEmployee;
 
 public class Menu{
     public void init(){
         Scanner scanf = new Scanner(System.in);
-        LinkedList<Employee> employee = new LinkedList<>();
+        LinkedList<Employee> employeeList = new LinkedList<>();
+        int uniqueID = 0;
 
         while(true){
             System.out.printf("~~~             ~~~ %n~ Choose a option ~ %n~~~             ~~~ %n");
@@ -22,10 +23,17 @@ public class Menu{
             switch(userInput){
                 case 1:
                     AddEmployee addEmployee = new AddEmployee();
-                    employee.add(addEmployee.newEmployee());
-                    System.out.println("| ~ EMPLOYEE ADDED ~ |");
+                    uniqueID++;
+                    employeeList.add(addEmployee.newEmployee(uniqueID));
+                    System.out.println("\n\n| ~ EMPLOYEE ADDED ~ |\n");
                     break;
                 case 2:
+                    if (employeeList.isEmpty()){
+                        System.out.println("\n\n{!} Empty database.\n");
+                    }else{
+                        FindEmployee rmEmployee = new FindEmployee();
+                        rmEmployee.removeEmployee(employeeList);
+                    }
                     break;
                 case 3:
                     break;
@@ -44,8 +52,13 @@ public class Menu{
                 case 10:
                     break;
                 case 11:
-                    for (Employee employee2 : employee) {
-                        listEmployee(employee2);
+                    if (employeeList.isEmpty()){
+                        System.out.println("\n\n{!} Empty database.\n");
+                    }else{
+                        System.out.println("\n\n| " + employeeList.size() + " employee(s) registered. |");
+                        for (Employee employees : employeeList) {
+                            listEmployee(employees);
+                        }
                     }
                     break;
                 case 12:
@@ -54,7 +67,7 @@ public class Menu{
                     System.exit(0);
                     break;
                 default:
-                    System.out.println("{!} Option not available. Please insert one from listed above.");
+                    System.out.println("\n\n{!} Option not available. Please insert one from listed above.\n");
                     break;
             }
         }
