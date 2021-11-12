@@ -11,7 +11,7 @@ public class Menu{
         int uniqueID = 0;
 
         while(true){
-            System.out.printf("~~~             ~~~ %n~ Choose a option ~ %n~~~             ~~~ %n");
+            System.out.printf("~~~             ~~~ %n~ Choose an option ~ %n~~~             ~~~ %n");
             System.out.printf("1   Add new employee %n2   Remove an employee");
             System.out.printf("%n3   Post a time card %n4   Post a commission sales result");
             System.out.printf("%n5   Post a syndicate service fee %n6   Change employee info");
@@ -21,13 +21,13 @@ public class Menu{
             int userInput = scanf.nextInt();
 
             switch(userInput){
-                case 1:
+                case 1: // add employee
                     AddEmployee addEmployee = new AddEmployee();
                     uniqueID++;
                     employeeList.add(addEmployee.newEmployee(uniqueID));
                     System.out.println("\n\n| ~ EMPLOYEE ADDED ~ |\n");
                     break;
-                case 2:
+                case 2: // remove employee
                     if (employeeList.isEmpty()){
                         System.out.println("\n\n{!} Empty database.\n");
                     }else{
@@ -35,23 +35,23 @@ public class Menu{
                         rmEmployee.removeEmployee(employeeList);
                     }
                     break;
-                case 3:
+                case 3: // post time card
                     break;
-                case 4:
+                case 4: // comission sales
                     break;
-                case 5:
+                case 5: // syndicate service fee
                     break;
-                case 6:
+                case 6: // change employee info
                     break;
-                case 7:
+                case 7: // todays payroll
                     break;
-                case 8:
+                case 8: // undo redo
                     break;
-                case 9:
+                case 9: // payment schedule
                     break;
-                case 10:
+                case 10: // new payment schedule
                     break;
-                case 11:
+                case 11: // show all employees
                     if (employeeList.isEmpty()){
                         System.out.println("\n\n{!} Empty database.\n");
                     }else{
@@ -61,7 +61,7 @@ public class Menu{
                         }
                     }
                     break;
-                case 12:
+                case 12: // exit
                     System.out.println("Shutting down system...");
                     scanf.close();
                     System.exit(0);
