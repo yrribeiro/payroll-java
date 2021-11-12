@@ -9,6 +9,7 @@ public class AddEmployee{
         Employee employee = new Employee();
         System.out.println("~~ Employee ID (6 first digits of your CPF):");
         employee.setCpf(scanf.nextInt());
+        scanf.nextLine();
 
         System.out.println("~~ Name:");
         employee.setName(scanf.nextLine());
@@ -18,13 +19,16 @@ public class AddEmployee{
 
         System.out.println("~~ Job type:\n0 for Hourly\n1 for Salaried\n2 for Comissioned");
         employee.setJobType(scanf.nextInt());
+        scanf.nextLine();
 
         System.out.println("~~ Payment method:\n0 for Mail\n1 for In Hands\n2 for Bank");
         employee.setPaymentType(scanf.nextInt());
+        scanf.nextLine();
 
         System.out.println("~~ Syndicalist [Y/N]:");
-        employee.setSyndicalist(scanf.nextBoolean());
-        scanf.close();
+        String userInput = scanf.next();
+        employee.setSyndicalist(userInput.contentEquals("Y"));
+
         return employee;
     }
 

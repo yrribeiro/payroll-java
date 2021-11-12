@@ -1,7 +1,5 @@
 package objects;
 
-import java.util.Set;
-
 public class Employee{
     private int cpf; // six first digits
     private String name;
