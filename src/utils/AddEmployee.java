@@ -24,9 +24,9 @@ public class AddEmployee{
         employee.setPaymentType(scanf.nextInt());
         scanf.nextLine();
 
-        System.out.println("~~ Syndicalist [Y/N]:");
+        System.out.println("~~ Is an union member [y/n]");
         String userInput = scanf.next();
-        employee.setSyndicalist(userInput.contentEquals("Y"));
+        employee.setSyndicalist(userInput.contentEquals("y"));
 
         return employee;
     }

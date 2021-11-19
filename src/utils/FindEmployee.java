@@ -1,41 +1,98 @@
 package utils;
+
 import java.util.LinkedList;
 import java.util.Scanner;
 import objects.Employee;
 
-public class FindEmployee{
+public class FindEmployee {
     Scanner scanf = new Scanner(System.in);
 
-    public Employee findEmployee(int employeeID, LinkedList<Employee> employeeList){
-        int sizeOfList = employeeList.size();
+    public int findEmployee(LinkedList<Employee> employeeList){
+        int employeeID;
 
-        while(true){
-            if (employeeID<1 | employeeID>sizeOfList){
-                System.out.println("{!} This ID is not been used. Make sure to type it correctly.");
+        System.out.println("\n\n|~ Insert the employee's ID: ");
+        employeeID = scanf.nextInt();
+
+        for (Employee employee : employeeList){
+            if (employee.getUniqueID() == employeeID){
+                return employeeList.lastIndexOf(employee);
+            }
+        }
+        return -1;
+    }
+
+    public void removeEmployee(LinkedList<Employee> employeeList){
+        String confirmation;
+        int foundEmployeeIndex;
+
+        foundEmployeeIndex = findEmployee(employeeList);
+        if (foundEmployeeIndex < 0){
+            System.out.println("{!} Employee not found. Make sure to retype the ID correctly.");
+        }else{
+            ListAllEmployee.listEmployee(employeeList.get(foundEmployeeIndex));
+            System.out.println("| Are you sure you want to delete this employee? [y/n]");
+            confirmation = scanf.next();
+            if (confirmation.contains("y")){
+                employeeList.remove(foundEmployeeIndex);
+                System.out.println("\n\n| ~ REMOVED SUCCESSFULLY. EMPLOYEE LIST UPDATED ~ |\n");
             }else{
-                return employeeList.get(employeeID);
+                System.out.println("\n\n{!} Action canceled.\n");
             }
         }
     }
 
-    public void removeEmployee(LinkedList<Employee> employeeList){
-        int employeeID;
-        String confirmation;
+    public void updateEmployeeInfo(LinkedList<Employee> employeeList){
+        int action;
+        int foundEmployeeIndex;
         Employee foundEmployee = new Employee();
 
-        System.out.println("\n\n|~ Insert the employee-to-be-removed's ID: ");
-        employeeID = scanf.nextInt();
-        employeeID -= 1;
-
-        foundEmployee = findEmployee(employeeID, employeeList);
-        ListAllEmployee.listEmployee(foundEmployee);
-        System.out.println("| Are you sure you want to delete this employee? [Y/N]");
-        confirmation = scanf.next();
-        if (confirmation.contains("Y")){
-            employeeList.remove(employeeID);
-            System.out.println("\n\n| ~ REMOVED SUCCESSFULLY. EMPLOYEE LIST UPDATED ~ |\n");
+        foundEmployeeIndex = findEmployee(employeeList);
+        if (foundEmployeeIndex < 0){
+            System.out.println("{!} Employee not found. Make sure to retype the ID correctly.");
         }else{
-            System.out.println("{!} Canceled action.");
+            System.out.println("\n|~ Changing data of the following employee:");
+            foundEmployee = employeeList.get(foundEmployeeIndex);
+            ListAllEmployee.listEmployee(foundEmployee);
+            System.out.println("\n|~ Select what you want to change:\n1  Name\n2  Address\n3  Job type\n4  Payment method\n5  Union membership");
+            System.out.printf("6  Union ID%n7  Union Fee%n> ");
+            action = scanf.nextInt();
+            scanf.nextLine();
+
+            switch (action) {
+                case 1: // change name
+                    System.out.println("|~ Type the new name: ");
+                    foundEmployee.setName(scanf.nextLine());
+                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
+                    break;
+                case 2: // change address
+                    System.out.println("|~ Type the new address: ");
+                    foundEmployee.setAddress(scanf.nextLine());
+                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
+                    break;
+                case 3: // change job type
+                    System.out.println("|~ Type the new job type [0 for Hourly | 1 for Salaried | 2 for Comissioned]");
+                    foundEmployee.setJobType(scanf.nextInt());
+                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
+                    break;
+                case 4: // change payment method
+                    System.out.println("|~ Type the new payment method [0 for Mail | 1 for In Hands | 2 for Bank]");
+                    foundEmployee.setPaymentType(scanf.nextInt());
+                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
+                    break;
+                case 5: // change union membership status
+                    System.out.println("|~ Is an union member [y/n] ");
+                    foundEmployee.setSyndicalist(scanf.hasNext("y"));
+                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
+                    break;
+                case 6: // change union ID
+
+                    break;
+                case 7: // change union fee
+
+                    break;
+                default:
+                    break;
+            }
         }
     }
 }

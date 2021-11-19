@@ -14,7 +14,7 @@ public class Menu{
             System.out.printf("~~~             ~~~ %n~ Choose an option ~ %n~~~             ~~~ %n");
             System.out.printf("1   Add new employee %n2   Remove an employee");
             System.out.printf("%n3   Post a time card %n4   Post a commission sales result");
-            System.out.printf("%n5   Post a syndicate service fee %n6   Change employee info");
+            System.out.printf("%n5   Post a union service fee %n6   Change employee info");
             System.out.printf("%n7   Run today's payroll %n8   Undo/redo");
             System.out.printf("%n9   Payment schedule %n10  New payment schedule");
             System.out.printf("%n11  Show all employees%n12  EXIT %n> ");
@@ -42,6 +42,12 @@ public class Menu{
                 case 5: // syndicate service fee
                     break;
                 case 6: // change employee info
+                    if (employeeList.isEmpty()){
+                        System.out.println("\n\n{!} Empty database.\n");
+                    }else{
+                        FindEmployee updateEmployee = new FindEmployee();
+                        updateEmployee.updateEmployeeInfo(employeeList);
+                    }
                     break;
                 case 7: // todays payroll
                     break;
