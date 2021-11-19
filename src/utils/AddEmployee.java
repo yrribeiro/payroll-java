@@ -16,17 +16,17 @@ public class AddEmployee{
         System.out.println("~~ Address: ");
         employee.setAddress(scanf.nextLine());
 
-        System.out.println("~~ Job type:\n  0 for Hourly\n  1 for Salaried\n  2 for Comissioned");
+        System.out.println("~~ Job type:\n0 for Hourly-paid\n  1 for Fixed wage\n  2 for Commissioned");
         employee.setJobType(scanf.nextInt());
         scanf.nextLine();
 
-        System.out.println("~~ Payment method:\n0 for Mail\n1 for In Hands\n2 for Bank");
+        System.out.println("~~ Payment method:\n0 for Mail\n1 for At Hands\n2 for Bank");
         employee.setPaymentType(scanf.nextInt());
         scanf.nextLine();
 
         System.out.println("~~ Is an union member [y/n]");
         String userInput = scanf.next();
-        employee.setSyndicalist(userInput.contentEquals("y"));
+        employee.setUnionist(userInput.contentEquals("y"));
 
         return employee;
     }

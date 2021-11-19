@@ -70,18 +70,18 @@ public class FindEmployee {
                     System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 3: // change job type
-                    System.out.println("|~ Type the new job type [0 for Hourly | 1 for Salaried | 2 for Comissioned]");
+                    System.out.println("|~ Type the new job type [0 for Hourly-paid | 1 for Fixed wage | 2 for Commissioned]");
                     foundEmployee.setJobType(scanf.nextInt());
                     System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 4: // change payment method
-                    System.out.println("|~ Type the new payment method [0 for Mail | 1 for In Hands | 2 for Bank]");
+                    System.out.println("|~ Type the new payment method [0 for Mail | 1 for At Hands | 2 for Bank]");
                     foundEmployee.setPaymentType(scanf.nextInt());
                     System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 5: // change union membership status
                     System.out.println("|~ Is an union member [y/n] ");
-                    foundEmployee.setSyndicalist(scanf.hasNext("y"));
+                    foundEmployee.setUnionist(scanf.hasNext("y"));
                     System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 6: // change union ID

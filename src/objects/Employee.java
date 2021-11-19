@@ -5,7 +5,7 @@ public class Employee{
     private String address;
     private int jobType;
     private int paymentType;
-    private Boolean syndicalist;
+    private Boolean unionist;
     int uniqueID;
 
     public void setUniqueID(int uniqueID) {
@@ -48,11 +48,11 @@ public class Employee{
         return paymentType;
     }
 
-    public void setSyndicalist(Boolean syndicalist) {
-        this.syndicalist = syndicalist;
+    public void setUnionist(Boolean unionist) {
+        this.unionist = unionist;
     }
 
-    public Boolean getSyndicalist() {
-        return syndicalist;
+    public Boolean getUnionist() {
+        return unionist;
     }
 }
