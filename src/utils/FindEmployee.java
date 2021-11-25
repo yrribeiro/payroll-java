@@ -22,16 +22,16 @@ public class FindEmployee {
         return -1;
     }
 
-    public static double findUnionistFee(String ID, LinkedList<Unionist> unionistList){
+    public static Unionist findUnionist(String ID, LinkedList<Unionist> unionistList){
         for (Unionist employee : unionistList) {
             if (employee.getUnionID().equals(ID)){
-                return employee.getUnionFee();
+                return employee;
             }
         }
-        return 0.0;
+        return null;
     }
 
-    public void removeEmployee(LinkedList<Employee> employeeList){
+    public void removeEmployee(LinkedList<Employee> employeeList, LinkedList<Unionist> unionistList){
         String confirmation;
         int foundEmployeeIndex;
 
@@ -39,11 +39,14 @@ public class FindEmployee {
         if (foundEmployeeIndex < 0){
             System.out.println("{!} Employee not found. Make sure to retype the ID correctly.");
         }else{
-            ListAllEmployee.listEmployee(employeeList.get(foundEmployeeIndex));
-            System.out.println("| Are you sure you want to delete this employee? [y/n]");
+            Employee foundEmployee = employeeList.get(foundEmployeeIndex);
+            ListAllEmployee.listEmployee(foundEmployee, unionistList);
+            System.out.println("| Are you sure you want to delete this employee (including from the union)? [y/n]");
             confirmation = scanf.next();
             if (confirmation.contains("y")){
+                Unionist foundUnionist = findUnionist(, unionistList)
                 employeeList.remove(foundEmployeeIndex);
+                unionistList.remove();
                 System.out.println("\n\n| ~ REMOVED SUCCESSFULLY. EMPLOYEE LIST UPDATED ~ |\n");
             }else{
                 System.out.println("\n\n{!} Action canceled.\n");
@@ -51,7 +54,7 @@ public class FindEmployee {
         }
     }
 
-    public void updateEmployeeInfo(LinkedList<Employee> employeeList){
+    public void updateEmployeeInfo(LinkedList<Employee> employeeList, LinkedList<Unionist> unionistList){
         int action;
         int foundEmployeeIndex;
         Employee foundEmployee = new Employee();
@@ -62,7 +65,7 @@ public class FindEmployee {
         }else{
             System.out.println("\n|~ Changing data of the following employee:");
             foundEmployee = employeeList.get(foundEmployeeIndex);
-            ListAllEmployee.listEmployee(foundEmployee);
+            ListAllEmployee.listEmployee(foundEmployee, unionistList);
             System.out.println("\n|~ Select what you want to change:\n1  Name\n2  Address\n3  Job type\n4  Payment method\n5  Union membership");
             System.out.printf("6  Union ID%n7  Union Fee%n> ");
             action = scanf.nextInt();
