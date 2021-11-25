@@ -1,6 +1,9 @@
 import java.util.Scanner;
+
+import objects.*;
+
 import java.util.LinkedList;
-import objects.Employee;
+
 import utils.*;
 import static utils.ListAllEmployee.listEmployee;
 
@@ -8,6 +11,7 @@ public class Menu{
     public void init(){
         Scanner scanf = new Scanner(System.in);
         LinkedList<Employee> employeeList = new LinkedList<>();
+        LinkedList<Unionist> unionistList = new LinkedList<>();
         int uniqueID = 0;
 
         while(true){
@@ -24,7 +28,11 @@ public class Menu{
                 case 1: // add employee
                     AddEmployee addEmployee = new AddEmployee();
                     uniqueID++;
-                    employeeList.add(addEmployee.newEmployee(uniqueID));
+                    Employee employeeToBeAdded = addEmployee.newEmployee(uniqueID);
+                    employeeList.add(employeeToBeAdded);
+                    if (employeeToBeAdded.getUnionist().booleanValue()){
+                        unionistList.add(addEmployee.addUnionist(employeeToBeAdded.getName(), uniqueID));
+                    }
                     System.out.println("\n\n| ~ EMPLOYEE ADDED ~ |\n");
                     break;
                 case 2: // remove employee
@@ -62,8 +70,8 @@ public class Menu{
                         System.out.println("\n\n{!} Empty database.\n");
                     }else{
                         System.out.println("\n\n| " + employeeList.size() + " employee(s) registered. |");
-                        for (Employee employees : employeeList) {
-                            listEmployee(employees);
+                        for (Object employees : employeeList) {
+                            listEmployee((Employee)employees, unionistList);
                         }
                     }
                     break;

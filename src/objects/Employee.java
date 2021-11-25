@@ -1,12 +1,12 @@
 package objects;
 
 public class Employee{
+    int uniqueID;
     private String name;
     private String address;
     private int jobType;
     private int paymentType;
     private Boolean unionist;
-    int uniqueID;
 
     public void setUniqueID(int uniqueID) {
         this.uniqueID = uniqueID;

@@ -3,6 +3,7 @@ package utils;
 import java.util.LinkedList;
 import java.util.Scanner;
 import objects.Employee;
+import objects.Unionist;
 
 public class FindEmployee {
     Scanner scanf = new Scanner(System.in);
@@ -19,6 +20,15 @@ public class FindEmployee {
             }
         }
         return -1;
+    }
+
+    public static double findUnionistFee(String ID, LinkedList<Unionist> unionistList){
+        for (Unionist employee : unionistList) {
+            if (employee.getUnionID().equals(ID)){
+                return employee.getUnionFee();
+            }
+        }
+        return 0.0;
     }
 
     public void removeEmployee(LinkedList<Employee> employeeList){
@@ -71,7 +81,7 @@ public class FindEmployee {
                     break;
                 case 3: // change job type
                     System.out.println("|~ Type the new job type [0 for Hourly-paid | 1 for Fixed wage | 2 for Commissioned]");
-                    foundEmployee.setJobType(scanf.nextInt());
+                    foundEmployee.setJobType(scanf.nextInt()); // TODO: CHANGE INCOMES FOR EACH TYPE
                     System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 4: // change payment method
