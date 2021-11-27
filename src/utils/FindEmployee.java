@@ -44,9 +44,12 @@ public class FindEmployee {
             System.out.println("| Are you sure you want to delete this employee (including from the union)? [y/n]");
             confirmation = scanf.next();
             if (confirmation.contains("y")){
-                Unionist foundUnionist = findUnionist(, unionistList)
+                Unionist foundUnionist = findUnionist(
+                    Unionist.calculateUnionID(foundEmployee.getName(), foundEmployee.getUniqueID()),
+                    unionistList
+                );
                 employeeList.remove(foundEmployeeIndex);
-                unionistList.remove();
+                unionistList.remove(foundUnionist);
                 System.out.println("\n\n| ~ REMOVED SUCCESSFULLY. EMPLOYEE LIST UPDATED ~ |\n");
             }else{
                 System.out.println("\n\n{!} Action canceled.\n");

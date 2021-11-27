@@ -5,7 +5,7 @@ import objects.*;
 import java.util.LinkedList;
 
 import utils.*;
-import static utils.ListAllEmployee.listEmployee;
+import static utils.ListAllEmployee.*;
 
 public class Menu{
     public void init(){
@@ -21,7 +21,7 @@ public class Menu{
             System.out.printf("%n5   Post a union service fee %n6   Change employee info");
             System.out.printf("%n7   Run today's payroll %n8   Undo/redo");
             System.out.printf("%n9   Payment schedule %n10  New payment schedule");
-            System.out.printf("%n11  Show all employees%n12  EXIT %n> ");
+            System.out.printf("%n11  Show all employees%n12  Show all unionists%n13  EXIT %n> ");
             int userInput = scanf.nextInt();
 
             switch(userInput){
@@ -31,7 +31,9 @@ public class Menu{
                     Employee employeeToBeAdded = addEmployee.newEmployee(uniqueID);
                     employeeList.add(employeeToBeAdded);
                     if (employeeToBeAdded.getUnionist().booleanValue()){
-                        unionistList.add(addEmployee.addUnionist(employeeToBeAdded.getName(), uniqueID));
+                        Unionist newUnionist = addEmployee.addUnionist(employeeToBeAdded.getName(), uniqueID);
+                        unionistList.add(newUnionist);
+                        System.out.println("\n\n|~ union ID: " + newUnionist.getUnionID());
                     }
                     System.out.println("\n\n| ~ EMPLOYEE ADDED ~ |\n");
                     break;
@@ -40,7 +42,7 @@ public class Menu{
                         System.out.println("\n\n{!} Empty database.\n");
                     }else{
                         FindEmployee rmEmployee = new FindEmployee();
-                        rmEmployee.removeEmployee(employeeList);
+                        rmEmployee.removeEmployee(employeeList, unionistList);
                     }
                     break;
                 case 3: // post time card
@@ -54,7 +56,7 @@ public class Menu{
                         System.out.println("\n\n{!} Empty database.\n");
                     }else{
                         FindEmployee updateEmployee = new FindEmployee();
-                        updateEmployee.updateEmployeeInfo(employeeList);
+                        updateEmployee.updateEmployeeInfo(employeeList, unionistList);
                     }
                     break;
                 case 7: // todays payroll
@@ -75,7 +77,17 @@ public class Menu{
                         }
                     }
                     break;
-                case 12: // exit
+                case 12: // show all unionists
+                    if (unionistList.isEmpty()){
+                        System.out.println("\n\n{!} Empty database.\n");
+                    }else{
+                        System.out.println("\n\n| " + unionistList.size() + " unionist(s) registered. |");
+                        for (Unionist unionist : unionistList) {
+                            listUnionist(unionist);
+                        }
+                    }
+                    break;
+                case 13: // exit
                     System.out.println("Shutting down system...");
                     scanf.close();
                     System.exit(0);

@@ -27,10 +27,13 @@ public class ListAllEmployee{
         }
 
         System.out.println("~ is unionist: " + foundEmployee.getUnionist());
-        if (foundEmployee.getUnionist()){
-            String id = Unionist.calculateUnionID(foundEmployee.getName(), foundEmployee.getUniqueID());
-            Unionist foundUnionist = FindEmployee.findUnionist(id, unionistList);
-            System.out.println("  [ID: " + id + " | Current fee: $" + foundUnionist.getUnionFee() + "]" + "\n~~~~~~~   ~~~~~~~\n");
-        }
+        System.out.println("~~~~~~~   ~~~~~~~");
+    }
+
+    public static void listUnionist(Unionist foundEmployee){
+        System.out.println("\n~~~~~~~   ~~~~~~~");
+        System.out.println("~ employee general ID: " + foundEmployee.getUniqueID() + "\n~ union ID: " + foundEmployee.getUnionID());
+        System.out.println("~ name: " + foundEmployee.getName() + "\n~ current fee: $" + foundEmployee.getUnionFee());
+        System.out.println("~~~~~~~   ~~~~~~~");
     }
 }

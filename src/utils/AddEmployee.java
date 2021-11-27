@@ -88,6 +88,8 @@ public class AddEmployee{
     public Unionist addUnionist(String name, int ID){
         Unionist newUnionist = new Unionist();
         newUnionist.setUnionID(Unionist.calculateUnionID(name, ID));
+        newUnionist.setName(name);
+        newUnionist.setUniqueID(ID);
 
         System.out.println("~~ Type the union fee [XXXX,XX]:");
         newUnionist.setUnionFee(scanf.nextDouble());
