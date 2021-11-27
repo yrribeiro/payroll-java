@@ -1,8 +1,7 @@
 package utils;
 import java.util.LinkedList;
 
-import objects.Employee;
-import objects.Unionist;
+import objects.*;
 
 public class ListAllEmployee{
     public static void listEmployee(Employee foundEmployee, LinkedList<Unionist> unionistList){
@@ -10,11 +9,11 @@ public class ListAllEmployee{
         System.out.println("~ employee ID: " + foundEmployee.getUniqueID() + "\n~ name: " + foundEmployee.getName() + "\n~ address: " + foundEmployee.getAddress());
         int jobType = foundEmployee.getJobType();
         if (jobType == 0){
-            System.out.println("~ job type: Hourly");
+            System.out.println("~ job type: Hourly-paid");
         }else if (jobType == 1){
-            System.out.println("~ job type: Salaried");
+            System.out.println("~ job type: Fixed wage");
         }else{
-            System.out.println("~ job type: Comissioned");
+            System.out.println("~ job type: Commissioned");
         }
 
         int paymentType = foundEmployee.getPaymentType();

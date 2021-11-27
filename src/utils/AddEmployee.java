@@ -43,7 +43,7 @@ public class AddEmployee{
         return employee;
     }
 
-    private Employee addHourly(int uniqueID, String name, String address, int paymentType){
+    public Employee addHourly(int uniqueID, String name, String address, int paymentType){
         HourlyEmployee newEmployee = new HourlyEmployee();
         newEmployee.setUniqueID(uniqueID);
         newEmployee.setName(name);
@@ -57,7 +57,7 @@ public class AddEmployee{
         return newEmployee;
     }
 
-    private Employee addWage(int uniqueID, String name, String address, int paymentType){
+    public Employee addWage(int uniqueID, String name, String address, int paymentType){
         WageEmployee newEmployee = new WageEmployee();
         newEmployee.setUniqueID(uniqueID);
         newEmployee.setName(name);
@@ -71,7 +71,7 @@ public class AddEmployee{
         return newEmployee;
     }
 
-    private Employee addCommissioned(int uniqueID, String name, String address, int paymentType){
+    public Employee addCommissioned(int uniqueID, String name, String address, int paymentType){
         CommissionedEmployee newEmployee = new CommissionedEmployee();
         newEmployee.setUniqueID(uniqueID);
         newEmployee.setName(name);

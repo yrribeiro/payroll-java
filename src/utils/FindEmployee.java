@@ -44,17 +44,21 @@ public class FindEmployee {
             System.out.println("| Are you sure you want to delete this employee (including from the union)? [y/n]");
             confirmation = scanf.next();
             if (confirmation.contains("y")){
-                Unionist foundUnionist = findUnionist(
+                employeeList.remove(foundEmployeeIndex);
+                removeUnionist(
                     Unionist.calculateUnionID(foundEmployee.getName(), foundEmployee.getUniqueID()),
                     unionistList
                 );
-                employeeList.remove(foundEmployeeIndex);
-                unionistList.remove(foundUnionist);
                 System.out.println("\n\n| ~ REMOVED SUCCESSFULLY. EMPLOYEE LIST UPDATED ~ |\n");
             }else{
                 System.out.println("\n\n{!} Action canceled.\n");
             }
         }
+    }
+
+    private void removeUnionist(String ID, LinkedList<Unionist> unionistList){
+        Unionist foundUnionist = findUnionist(ID, unionistList);
+        unionistList.remove(foundUnionist);
     }
 
     public void updateEmployeeInfo(LinkedList<Employee> employeeList, LinkedList<Unionist> unionistList){
@@ -75,6 +79,13 @@ public class FindEmployee {
             action = scanf.nextInt();
             scanf.nextLine();
 
+            int foundID = foundEmployee.getUniqueID();
+            String foundName = foundEmployee.getName();
+            String foundAdress =foundEmployee.getAddress();
+            int foundPaymentType = foundEmployee.getPaymentType();
+            Boolean foundUnionStatus = foundEmployee.getUnionist();
+            AddEmployee update = new AddEmployee();
+
             switch (action) {
                 case 1: // change name
                     System.out.println("|~ Type the new name: ");
@@ -88,7 +99,33 @@ public class FindEmployee {
                     break;
                 case 3: // change job type
                     System.out.println("|~ Type the new job type [0 for Hourly-paid | 1 for Fixed wage | 2 for Commissioned]");
-                    foundEmployee.setJobType(scanf.nextInt());
+                    int newJobType = scanf.nextInt();
+                    if (foundEmployee.getJobType() != newJobType){
+                        if (newJobType == 0){
+                            foundEmployee = update.addHourly(
+                                foundID,
+                                foundName,
+                                foundAdress,
+                                foundPaymentType
+                            );
+                        }else if (newJobType == 1){
+                            foundEmployee = update.addWage(
+                                foundID,
+                                foundName,
+                                foundAdress,
+                                foundPaymentType
+                            );
+                        }else if (newJobType == 2){
+                            foundEmployee = update.addCommissioned(
+                                foundID,
+                                foundName,
+                                foundAdress,
+                                foundPaymentType
+                            );
+                        }
+                    }else{
+                        System.out.println("{!} No change needed.");
+                    }
                     System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 4: // change payment method
@@ -98,7 +135,16 @@ public class FindEmployee {
                     break;
                 case 5: // change union membership status
                     System.out.println("|~ Is an union member [y/n] ");
-                    foundEmployee.setUnionist(scanf.hasNext("y"));
+                    Boolean newStatus = scanf.hasNext("y");
+                    if (foundUnionStatus == true & newStatus == false){
+                        removeUnionist(
+                            Unionist.calculateUnionID(foundEmployee.getName(), foundEmployee.getUniqueID()),
+                            unionistList
+                        );
+                    }else if (foundUnionStatus == false & newStatus == true){
+                        update.addUnionist(foundName, foundID);
+                    }
+                    foundEmployee.setUnionist(newStatus);
                     System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 6: // change union ID

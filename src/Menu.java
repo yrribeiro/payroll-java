@@ -47,7 +47,7 @@ public class Menu{
                     break;
                 case 3: // post time card
                     break;
-                case 4: // comission sales
+                case 4: // commission sales
                     break;
                 case 5: // syndicate service fee
                     break;
