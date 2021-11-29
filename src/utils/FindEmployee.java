@@ -123,10 +123,10 @@ public class FindEmployee {
                                 foundPaymentType
                             );
                         }
+                        System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     }else{
                         System.out.println("{!} No change needed.");
                     }
-                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 4: // change payment method
                     System.out.println("|~ Type the new payment method [0 for Mail | 1 for At Hands | 2 for Bank]");
@@ -136,13 +136,13 @@ public class FindEmployee {
                 case 5: // change union membership status
                     System.out.println("|~ Is an union member [y/n] ");
                     Boolean newStatus = scanf.hasNext("y");
-                    if (foundUnionStatus == true & newStatus == false){
+                    if (foundUnionStatus && !newStatus){
                         removeUnionist(
                             Unionist.calculateUnionID(foundEmployee.getName(), foundEmployee.getUniqueID()),
                             unionistList
                         );
-                    }else if (foundUnionStatus == false & newStatus == true){
-                        update.addUnionist(foundName, foundID);
+                    }else if (!foundUnionStatus && newStatus){
+                        unionistList.add(update.addUnionist(foundName, foundID));
                     }
                     foundEmployee.setUnionist(newStatus);
                     System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
