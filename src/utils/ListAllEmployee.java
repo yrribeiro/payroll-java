@@ -12,7 +12,7 @@ public class ListAllEmployee{
             System.out.println("~ job type: Hourly-paid");
         }else if (jobType == 1){
             System.out.println("~ job type: Fixed wage");
-        }else{
+        }else if (jobType == 2){
             System.out.println("~ job type: Commissioned");
         }
 
@@ -21,7 +21,7 @@ public class ListAllEmployee{
             System.out.println("~ payment method: Mail");
         }else if (paymentType == 1){
             System.out.println("~ payment method: At Hands");
-        }else{
+        }else if (paymentType == 2){
             System.out.println("~ payment method: Bank deposit");
         }
 

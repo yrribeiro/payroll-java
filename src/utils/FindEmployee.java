@@ -102,19 +102,25 @@ public class FindEmployee {
                     int newJobType = scanf.nextInt();
                     if (foundEmployee.getJobType() != newJobType){
                         if (newJobType == 0){
+                            employeeList.remove(foundEmployeeIndex);
                             foundEmployee = update.addHourly(
                                 foundID,
                                 foundName,
                                 foundAdress,
                                 foundPaymentType
                             );
+                            foundEmployee.setUnionist(foundUnionStatus);
+                            employeeList.add(foundEmployeeIndex, foundEmployee);
                         }else if (newJobType == 1){
+                            employeeList.remove(foundEmployeeIndex);
                             foundEmployee = update.addWage(
                                 foundID,
                                 foundName,
                                 foundAdress,
                                 foundPaymentType
                             );
+                            foundEmployee.setUnionist(foundUnionStatus);
+                            employeeList.add(foundEmployeeIndex, foundEmployee);
                         }else if (newJobType == 2){
                             foundEmployee = update.addCommissioned(
                                 foundID,
@@ -122,6 +128,8 @@ public class FindEmployee {
                                 foundAdress,
                                 foundPaymentType
                             );
+                            foundEmployee.setUnionist(foundUnionStatus);
+                            employeeList.add(foundEmployeeIndex, foundEmployee);
                         }
                         System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     }else{
