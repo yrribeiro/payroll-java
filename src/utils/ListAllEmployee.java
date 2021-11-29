@@ -29,10 +29,10 @@ public class ListAllEmployee{
         System.out.println("~~~~~~~   ~~~~~~~\n");
     }
 
-    public static void listUnionist(Unionist foundEmployee){
+    public static void listUnionist(Unionist foundUnionist){
         System.out.println("\n~~~~~~~   ~~~~~~~");
-        System.out.println("~ employee general ID: " + foundEmployee.getUniqueID() + "\n~ union ID: " + foundEmployee.getUnionID());
-        System.out.println("~ name: " + foundEmployee.getName() + "\n~ current fee: $" + foundEmployee.getUnionFee());
+        System.out.println("~ employee general ID: " + foundUnionist.getUniqueID() + "\n~ union ID: " + foundUnionist.getUnionID());
+        System.out.println("~ name: " + foundUnionist.getName() + "\n~ current fee: $" + foundUnionist.getUnionFee());
         System.out.println("~~~~~~~   ~~~~~~~\n");
     }
 }

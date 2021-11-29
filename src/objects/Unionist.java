@@ -9,7 +9,7 @@ public class Unionist extends Employee{
     }
 
     public void setUnionFee(double unionFee) {
-        this.unionFee = unionFee;
+        this.unionFee += unionFee;
     }
 
     public double getUnionFee() {

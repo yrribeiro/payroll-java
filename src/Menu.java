@@ -50,6 +50,9 @@ public class Menu{
                 case 4: // commission sales
                     break;
                 case 5: // syndicate service fee
+                    AddUnionServiceFee addFee = new AddUnionServiceFee();
+                    addFee.addServiceFee(unionistList);
+                    System.out.println("\n\n| ~ TAX ADDED ~ |\n");
                     break;
                 case 6: // change employee info
                     if (employeeList.isEmpty()){
