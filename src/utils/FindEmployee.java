@@ -1,6 +1,6 @@
 package utils;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.Scanner;
 import objects.Employee;
 import objects.Unionist;
@@ -8,7 +8,7 @@ import objects.Unionist;
 public class FindEmployee {
     Scanner scanf = new Scanner(System.in);
 
-    public int findEmployee(LinkedList<Employee> employeeList){
+    public int findEmployee(ArrayList<Employee> employeeList){
         int employeeID;
 
         System.out.println("\n\n|~ Insert the employee's ID: ");
@@ -22,7 +22,7 @@ public class FindEmployee {
         return -1;
     }
 
-    public static Unionist findUnionist(String ID, LinkedList<Unionist> unionistList){
+    public static Unionist findUnionist(String ID, ArrayList<Unionist> unionistList){
         for (Unionist unionist : unionistList) {
             if (unionist.getUnionID().equals(ID)){
                 return unionist;
@@ -31,7 +31,7 @@ public class FindEmployee {
         return null;
     }
 
-    public void removeEmployee(LinkedList<Employee> employeeList, LinkedList<Unionist> unionistList){
+    public void removeEmployee(ArrayList<Employee> employeeList, ArrayList<Unionist> unionistList){
         String confirmation;
         int foundEmployeeIndex;
 
@@ -56,16 +56,15 @@ public class FindEmployee {
         }
     }
 
-    private void removeUnionist(String ID, LinkedList<Unionist> unionistList){
+    private void removeUnionist(String ID, ArrayList<Unionist> unionistList){
         Unionist foundUnionist = findUnionist(ID, unionistList);
         unionistList.remove(foundUnionist);
     }
 
-    public void updateEmployeeInfo(LinkedList<Employee> employeeList, LinkedList<Unionist> unionistList){
+    public void updateEmployeeInfo(ArrayList<Employee> employeeList, ArrayList<Unionist> unionistList){
         int action;
         int foundEmployeeIndex;
         Employee foundEmployee = new Employee();
-
 
         foundEmployeeIndex = findEmployee(employeeList);
         if (foundEmployeeIndex < 0){

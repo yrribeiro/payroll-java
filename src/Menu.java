@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 import objects.*;
 
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import utils.*;
 import static utils.ListAllEmployee.*;
@@ -10,8 +10,9 @@ import static utils.ListAllEmployee.*;
 public class Menu{
     public void init(){
         Scanner scanf = new Scanner(System.in);
-        LinkedList<Employee> employeeList = new LinkedList<>();
-        LinkedList<Unionist> unionistList = new LinkedList<>();
+        ArrayList<Employee> employeeList = new ArrayList<>();
+        ArrayList<Unionist> unionistList = new ArrayList<>();
+        ArrayList<PaymentSchedule> availableSchedules = new ArrayList<>();
         int uniqueID = 0;
 
         while(true){
@@ -20,7 +21,7 @@ public class Menu{
             System.out.printf("%n3   Post a time card %n4   Post a commission sales result");
             System.out.printf("%n5   Post a union service fee %n6   Change employee info");
             System.out.printf("%n7   Run today's payroll %n8   Undo/redo");
-            System.out.printf("%n9   Payment schedule %n10  New payment schedule");
+            System.out.printf("%n9   Choose payment schedule %n10  New payment schedule");
             System.out.printf("%n11  Show all employees%n12  Show all unionists%n13  EXIT %n> ");
             int userInput = scanf.nextInt();
 
@@ -46,8 +47,15 @@ public class Menu{
                     }
                     break;
                 case 3: // post time card
+                    // if (employeeList.isEmpty()){
+                    //     System.out.println("\n\n{!} Empty database.\n");
+                    // }else{
+                    // }
                     break;
                 case 4: // commission sales
+                    // if (employeeList.isEmpty()){
+                    //     System.out.println("\n\n{!} Empty database.\n");
+                    // }else{
                     break;
                 case 5: // syndicate service fee
                     AddUnionServiceFee addFee = new AddUnionServiceFee();
@@ -66,7 +74,7 @@ public class Menu{
                     break;
                 case 8: // undo redo
                     break;
-                case 9: // payment schedule
+                case 9: // choose payment schedule
                     break;
                 case 10: // new payment schedule
                     break;

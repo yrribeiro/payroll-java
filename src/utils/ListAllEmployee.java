@@ -1,10 +1,10 @@
 package utils;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import objects.*;
 
 public class ListAllEmployee{
-    public static void listEmployee(Employee foundEmployee, LinkedList<Unionist> unionistList){
+    public static void listEmployee(Employee foundEmployee, ArrayList<Unionist> unionistList){
         System.out.println("\n~~~~~~~   ~~~~~~~");
         System.out.println("~ employee ID: " + foundEmployee.getUniqueID() + "\n~ name: " + foundEmployee.getName() + "\n~ address: " + foundEmployee.getAddress());
         int jobType = foundEmployee.getJobType();
@@ -13,7 +13,7 @@ public class ListAllEmployee{
         }else if (jobType == 1){
             System.out.println("~ job type: Fixed wage");
         }else if (jobType == 2){
-            System.out.println("~ job type: Commissioned");
+            System.out.println("~ job type: Fixed wage [Commissioned]");
         }
 
         int paymentType = foundEmployee.getPaymentType();

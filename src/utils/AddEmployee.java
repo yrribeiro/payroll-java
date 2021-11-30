@@ -30,7 +30,6 @@ public class AddEmployee{
             employee = addHourly(uniqueID, name, address, paymentType);
         }else if (jobType == 1){
             employee = addWage(uniqueID, name, address, paymentType);
-
         }else if (jobType == 2){
             employee = addCommissioned(uniqueID, name, address, paymentType);
         }
@@ -78,6 +77,9 @@ public class AddEmployee{
         newEmployee.setAddress(address);
         newEmployee.setPaymentType(paymentType);
         newEmployee.setJobType(2);
+
+        System.out.println("~~ Type the monthly income [XXXX,XX]:");
+        newEmployee.setMonthlyIncome(scanf.nextDouble());
 
         System.out.println("~~ Type the commission rate per sale [XXXX,XX]:");
         newEmployee.setRatePerSale(scanf.nextDouble());
