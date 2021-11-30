@@ -1,6 +1,5 @@
 package objects;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class HourlyEmployee extends Employee{
