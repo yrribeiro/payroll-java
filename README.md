@@ -12,7 +12,7 @@ This is a work in progress. Come back later.
 |     7    |  Run today's payroll           | :x: |
 |     8    |  Undo/Redo                     | :x: |
 |     9    |  Payment schedule              | :x: |
-|    10    |  New payment schedule | :x: |
+|    10    |  New payment schedule | :heavy_check_mark: |
 |    11    |  Show all employees | :heavy_check_mark: |
 |    12    |  Show all unionists | :heavy_check_mark: |
 |    13    |  Exit system | :heavy_check_mark: |

@@ -73,8 +73,8 @@ public class FindEmployee {
             System.out.println("\n|~ Changing data of the following employee:");
             foundEmployee = employeeList.get(foundEmployeeIndex);
             ListAllEmployee.listEmployee(foundEmployee, unionistList);
-            System.out.println("\n|~ Select what you want to change:\n1  Name\n2  Address\n3  Job type\n4  Payment method\n5  Union membership");
-            System.out.printf("6  Union ID%n7  Union Fee%n> ");
+            System.out.println("\n|~ Select what you want to change:\n 1  Name\n 2  Address\n 3  Job type\n 4  Payment method\n 5  Union membership");
+            System.out.printf(" 6  Union ID%n 7  Union Fee%n> ");
             action = scanf.nextInt();
             scanf.nextLine();
 
@@ -83,6 +83,7 @@ public class FindEmployee {
             String foundAdress =foundEmployee.getAddress();
             int foundPaymentType = foundEmployee.getPaymentType();
             Boolean foundUnionStatus = foundEmployee.getUnionist();
+            String foundPaymentSchedule = foundEmployee.getPaymentSchedule();
             AddEmployee update = new AddEmployee();
 
             switch (action) {
@@ -106,7 +107,8 @@ public class FindEmployee {
                                 foundID,
                                 foundName,
                                 foundAdress,
-                                foundPaymentType
+                                foundPaymentType,
+                                foundPaymentSchedule
                             );
                             foundEmployee.setUnionist(foundUnionStatus);
                             employeeList.add(foundEmployeeIndex, foundEmployee);
@@ -116,7 +118,8 @@ public class FindEmployee {
                                 foundID,
                                 foundName,
                                 foundAdress,
-                                foundPaymentType
+                                foundPaymentType,
+                                foundPaymentSchedule
                             );
                             foundEmployee.setUnionist(foundUnionStatus);
                             employeeList.add(foundEmployeeIndex, foundEmployee);
@@ -125,7 +128,8 @@ public class FindEmployee {
                                 foundID,
                                 foundName,
                                 foundAdress,
-                                foundPaymentType
+                                foundPaymentType,
+                                foundPaymentSchedule
                             );
                             foundEmployee.setUnionist(foundUnionStatus);
                             employeeList.add(foundEmployeeIndex, foundEmployee);

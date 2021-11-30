@@ -18,11 +18,11 @@ public class ListAllEmployee{
 
         int paymentType = foundEmployee.getPaymentType();
         if (paymentType == 0){
-            System.out.println("~ payment method: Mail");
+            System.out.println("~ payment method: Mail [" + foundEmployee.getPaymentSchedule() + "]");
         }else if (paymentType == 1){
-            System.out.println("~ payment method: At Hands");
+            System.out.println("~ payment method: At Hands [" + foundEmployee.getPaymentSchedule() + "]");
         }else if (paymentType == 2){
-            System.out.println("~ payment method: Bank deposit");
+            System.out.println("~ payment method: Bank deposit [" + foundEmployee.getPaymentSchedule() + "]");
         }
 
         System.out.println("~ is unionist: " + foundEmployee.getUnionist());

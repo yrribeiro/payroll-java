@@ -7,6 +7,7 @@ public class Employee{
     private int jobType;
     private int paymentType;
     private Boolean unionist;
+    private String paymentSchedule;
 
     public void setUniqueID(int uniqueID) {
         this.uniqueID = uniqueID;
@@ -54,5 +55,13 @@ public class Employee{
 
     public Boolean getUnionist() {
         return unionist;
+    }
+
+    public void setPaymentSchedule(String paymentSchedule) {
+        this.paymentSchedule = paymentSchedule;
+    }
+
+    public String getPaymentSchedule() {
+        return paymentSchedule;
     }
 }

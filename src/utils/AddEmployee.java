@@ -1,4 +1,5 @@
 package utils;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import objects.CommissionedEmployee;
@@ -10,7 +11,7 @@ import objects.WageEmployee;
 public class AddEmployee{
     Scanner scanf = new Scanner(System.in);
 
-    public Employee newEmployee(int uniqueID){
+    public Employee newEmployee(int uniqueID, ArrayList<String> availableSchedules){
         System.out.println("~~ New employee ID: " + uniqueID);
 
         System.out.println("~~ Name: ");
@@ -27,11 +28,11 @@ public class AddEmployee{
         int jobType = scanf.nextInt();
         Employee employee = new Employee();
         if (jobType == 0){
-            employee = addHourly(uniqueID, name, address, paymentType);
+            employee = addHourly(uniqueID, name, address, paymentType, availableSchedules.get(jobType));
         }else if (jobType == 1){
-            employee = addWage(uniqueID, name, address, paymentType);
+            employee = addWage(uniqueID, name, address, paymentType, availableSchedules.get(jobType));
         }else if (jobType == 2){
-            employee = addCommissioned(uniqueID, name, address, paymentType);
+            employee = addCommissioned(uniqueID, name, address, paymentType, availableSchedules.get(jobType));
         }
         scanf.nextLine();
 
@@ -42,13 +43,14 @@ public class AddEmployee{
         return employee;
     }
 
-    public Employee addHourly(int uniqueID, String name, String address, int paymentType){
+    public Employee addHourly(int uniqueID, String name, String address, int paymentType, String defaultHourlyEmployeeSchedule){
         HourlyEmployee newEmployee = new HourlyEmployee();
         newEmployee.setUniqueID(uniqueID);
         newEmployee.setName(name);
         newEmployee.setAddress(address);
         newEmployee.setPaymentType(paymentType);
         newEmployee.setJobType(0);
+        newEmployee.setPaymentSchedule(defaultHourlyEmployeeSchedule);
 
         System.out.println("~~ Type the hourly income [XX,XX]:");
         newEmployee.setHourlyIncome(scanf.nextDouble());
@@ -56,13 +58,14 @@ public class AddEmployee{
         return newEmployee;
     }
 
-    public Employee addWage(int uniqueID, String name, String address, int paymentType){
+    public Employee addWage(int uniqueID, String name, String address, int paymentType, String defaultWageEmployeeSchedule){
         WageEmployee newEmployee = new WageEmployee();
         newEmployee.setUniqueID(uniqueID);
         newEmployee.setName(name);
         newEmployee.setAddress(address);
         newEmployee.setPaymentType(paymentType);
         newEmployee.setJobType(1);
+        newEmployee.setPaymentSchedule(defaultWageEmployeeSchedule);
 
         System.out.println("~~ Type the monthly income [XXXX,XX]:");
         newEmployee.setMonthlyIncome(scanf.nextDouble());
@@ -70,13 +73,14 @@ public class AddEmployee{
         return newEmployee;
     }
 
-    public Employee addCommissioned(int uniqueID, String name, String address, int paymentType){
+    public Employee addCommissioned(int uniqueID, String name, String address, int paymentType, String defaultCommEmployeeSchedule){
         CommissionedEmployee newEmployee = new CommissionedEmployee();
         newEmployee.setUniqueID(uniqueID);
         newEmployee.setName(name);
         newEmployee.setAddress(address);
         newEmployee.setPaymentType(paymentType);
         newEmployee.setJobType(2);
+        newEmployee.setPaymentSchedule(defaultCommEmployeeSchedule);
 
         System.out.println("~~ Type the monthly income [XXXX,XX]:");
         newEmployee.setMonthlyIncome(scanf.nextDouble());

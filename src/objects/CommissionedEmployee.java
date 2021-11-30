@@ -10,4 +10,10 @@ public class CommissionedEmployee extends WageEmployee{
     public double getMonthlyIncome() {
         return ratePerSale;
     }
+
+    @Override
+    public void setPaymentSchedule(String paymentSchedule) {
+        super.setPaymentSchedule(paymentSchedule);
+    }
+
 }

@@ -10,4 +10,9 @@ public class WageEmployee extends Employee{
     public double getMonthlyIncome() {
         return monthlyIncome;
     }
+
+    @Override
+    public void setPaymentSchedule(String paymentSchedule) {
+        super.setPaymentSchedule(paymentSchedule);
+    }
 }

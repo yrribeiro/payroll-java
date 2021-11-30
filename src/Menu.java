@@ -6,14 +6,17 @@ import java.util.ArrayList;
 
 import utils.*;
 import static utils.ListAllEmployee.*;
+import static utils.CreatePaymentSchedule.setDefaultSchedule;
 
 public class Menu{
     public void init(){
         Scanner scanf = new Scanner(System.in);
         ArrayList<Employee> employeeList = new ArrayList<>();
         ArrayList<Unionist> unionistList = new ArrayList<>();
-        ArrayList<PaymentSchedule> availableSchedules = new ArrayList<>();
+        ArrayList<String> availableSchedules = new ArrayList<>();
         int uniqueID = 0;
+
+        setDefaultSchedule(availableSchedules);
 
         while(true){
             System.out.printf("~~~             ~~~ %n~ Choose an option ~ %n~~~             ~~~ %n");
@@ -29,7 +32,7 @@ public class Menu{
                 case 1: // add employee
                     AddEmployee addEmployee = new AddEmployee();
                     uniqueID++;
-                    Employee employeeToBeAdded = addEmployee.newEmployee(uniqueID);
+                    Employee employeeToBeAdded = addEmployee.newEmployee(uniqueID, availableSchedules);
                     employeeList.add(employeeToBeAdded);
                     if (employeeToBeAdded.getUnionist().booleanValue()){
                         Unionist newUnionist = addEmployee.addUnionist(employeeToBeAdded.getName(), uniqueID);
@@ -77,6 +80,8 @@ public class Menu{
                 case 9: // choose payment schedule
                     break;
                 case 10: // new payment schedule
+                    CreatePaymentSchedule creator = new CreatePaymentSchedule();
+                    creator.newPaymentSchedule(availableSchedules);
                     break;
                 case 11: // show all employees
                     if (employeeList.isEmpty()){

@@ -15,4 +15,9 @@ public class HourlyEmployee extends Employee{
     public double getHourlyIncome() {
         return hourlyIncome;
     }
+
+    @Override
+    public void setPaymentSchedule(String paymentSchedule) {
+        super.setPaymentSchedule(paymentSchedule);
+    }
 }
