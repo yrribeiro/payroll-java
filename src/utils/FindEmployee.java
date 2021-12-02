@@ -149,7 +149,7 @@ public class FindEmployee {
                     Boolean newStatus = scanf.hasNext("y");
                     if (foundUnionStatus && !newStatus){
                         removeUnionist(
-                            Unionist.calculateUnionID(foundEmployee.getName(), foundEmployee.getUniqueID()),
+                            Unionist.calculateUnionID(foundName, foundID),
                             unionistList
                         );
                     }else if (!foundUnionStatus && newStatus){
