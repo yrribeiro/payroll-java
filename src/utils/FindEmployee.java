@@ -42,7 +42,7 @@ public class FindEmployee {
             Employee foundEmployee = employeeList.get(foundEmployeeIndex);
             ListAllEmployee.listEmployee(foundEmployee, unionistList);
             System.out.println("| Are you sure you want to delete this employee (including from the union)? [y/n]");
-            confirmation = scanf.next();
+            confirmation = scanf.next().toLowerCase();
             if (confirmation.contains("y")){
                 employeeList.remove(foundEmployeeIndex);
                 removeUnionist(
