@@ -11,7 +11,7 @@ public class FindEmployee {
     public static int findEmployee(ArrayList<Employee> employeeList){
         int employeeID;
 
-        System.out.println("\n\n|~ Insert the employee's ID: ");
+        System.out.printf("%n%n|~ Insert the employee's ID: ");
         employeeID = scanf.nextInt();
 
         for (Employee employee : employeeList){

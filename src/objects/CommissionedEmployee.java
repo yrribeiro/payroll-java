@@ -8,7 +8,7 @@ public class CommissionedEmployee extends WageEmployee{
         this.ratePerSale = ratePerSale;
     }
 
-    public double getMonthlyIncome() {
+    public double getRatePerSale() {
         return ratePerSale;
     }
 

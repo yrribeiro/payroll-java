@@ -6,7 +6,7 @@ This is a work in progress. Come back later.
 |     1    |  Add new employee               | :heavy_check_mark: |
 |     2    |  Remove an employee            | :heavy_check_mark: |
 |     3    |  Post a time card               | :x: |
-|     4    |  Post a commission sales result             | :x: |
+|     4    |  Post a sales commission              | :heavy_check_mark: |
 |     5    |  Post a union service fee            | :heavy_check_mark: |
 |     6    |  Change employee info       | :heavy_check_mark: |
 |     7    |  Run today's payroll           | :x: |

@@ -85,7 +85,7 @@ public class AddEmployee{
         System.out.println("~~ Type the monthly income [XXXX,XX]:");
         newEmployee.setMonthlyIncome(scanf.nextDouble());
 
-        System.out.println("~~ Type the commission rate per sale [XX,XX]:");
+        System.out.println("~~ Type the commission rate per sale [0,XX]:");
         newEmployee.setRatePerSale(scanf.nextDouble());
         newEmployee.setTotalCommissions(0);
 

@@ -21,7 +21,7 @@ public class Menu{
         while(true){
             System.out.printf("~~~             ~~~ %n~ Choose an option ~ %n~~~             ~~~ %n");
             System.out.printf("1   Add new employee %n2   Remove an employee");
-            System.out.printf("%n3   Post a time card %n4   Post a commission sales result");
+            System.out.printf("%n3   Post a time card %n4   Post a sales commission");
             System.out.printf("%n5   Post a union service fee %n6   Change employee info");
             System.out.printf("%n7   Run today's payroll %n8   Undo/redo");
             System.out.printf("%n9   Choose payment schedule %n10  New payment schedule");
@@ -55,10 +55,15 @@ public class Menu{
                     // }else{
                     // }
                     break;
-                case 4: // commission sales
-                    // if (employeeList.isEmpty()){
-                    //     System.out.println("\n\n{!} Empty database.\n");
-                    // }else{
+                case 4: // sales commission
+                    if (employeeList.isEmpty()){
+                        System.out.println("\n\n{!} Empty database.\n");
+                    }else{
+                        AddSalesCommission add = new AddSalesCommission();
+                        boolean flag = add.addCommission(employeeList);
+                        if (flag)
+                            System.out.println("\n\n| ~ SALES COMMISSION ADDED ~ |\n");
+                    }
                     break;
                 case 5: // syndicate service fee
                     AddUnionServiceFee addFee = new AddUnionServiceFee();
