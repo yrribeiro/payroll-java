@@ -6,9 +6,9 @@ import objects.Employee;
 import objects.Unionist;
 
 public class FindEmployee {
-    Scanner scanf = new Scanner(System.in);
+    static Scanner scanf = new Scanner(System.in);
 
-    public int findEmployee(ArrayList<Employee> employeeList){
+    public static int findEmployee(ArrayList<Employee> employeeList){
         int employeeID;
 
         System.out.println("\n\n|~ Insert the employee's ID: ");
@@ -90,12 +90,10 @@ public class FindEmployee {
                 case 1: // change name
                     System.out.println("|~ Type the new name: ");
                     foundEmployee.setName(scanf.nextLine());
-                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 2: // change address
                     System.out.println("|~ Type the new address: ");
                     foundEmployee.setAddress(scanf.nextLine());
-                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 3: // change job type
                     System.out.println("|~ Type the new job type [0 for Hourly-paid | 1 for Fixed wage | 2 for Commissioned]");
@@ -134,7 +132,6 @@ public class FindEmployee {
                             foundEmployee.setUnionist(foundUnionStatus);
                             employeeList.add(foundEmployeeIndex, foundEmployee);
                         }
-                        System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     }else{
                         System.out.println("{!} No change needed.");
                     }
@@ -142,7 +139,6 @@ public class FindEmployee {
                 case 4: // change payment method
                     System.out.println("|~ Type the new payment method [0 for Mail | 1 for At Hands | 2 for Bank]");
                     foundEmployee.setPaymentType(scanf.nextInt());
-                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 5: // change union membership status
                     System.out.println("|~ Is an union member [y/n] ");
@@ -156,7 +152,6 @@ public class FindEmployee {
                         unionistList.add(update.addUnionist(foundName, foundID));
                     }
                     foundEmployee.setUnionist(newStatus);
-                    System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     break;
                 case 6: // change union ID
                     System.out.println("|~ Type the OLD ID: ");
@@ -164,7 +159,6 @@ public class FindEmployee {
                     if (foundUnionist != null){
                         System.out.println("|~ Type the NEW ID: ");
                         foundUnionist.setUnionID(scanf.nextLine());
-                        System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                         break;
                     }else{
                         System.out.println("{!} Unionist not found. Make sure to retype the ID correctly.");
@@ -176,7 +170,6 @@ public class FindEmployee {
                     if (foundUnionist2 != null){
                         System.out.println("|~ Type the new fee: ");
                         foundUnionist2.setUnionFee(scanf.nextDouble());
-                        System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                         break;
                     }else{
                         System.out.println("{!} Unionist not found. Make sure to retype the ID correctly.");

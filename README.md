@@ -11,7 +11,7 @@ This is a work in progress. Come back later.
 |     6    |  Change employee info       | :heavy_check_mark: |
 |     7    |  Run today's payroll           | :x: |
 |     8    |  Undo/Redo                     | :x: |
-|     9    |  Payment schedule              | :x: |
+|     9    |  Choose payment schedule              | :heavy_check_mark: |
 |    10    |  New payment schedule | :heavy_check_mark: |
 |    11    |  Show all employees | :heavy_check_mark: |
 |    12    |  Show all unionists | :heavy_check_mark: |

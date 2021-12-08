@@ -71,6 +71,7 @@ public class Menu{
                     }else{
                         FindEmployee updateEmployee = new FindEmployee();
                         updateEmployee.updateEmployeeInfo(employeeList, unionistList);
+                        System.out.println("\n\n|~    UPDATE SUCESSFULLY DONE    ~|\n");
                     }
                     break;
                 case 7: // todays payroll
@@ -78,6 +79,10 @@ public class Menu{
                 case 8: // undo redo
                     break;
                 case 9: // choose payment schedule
+                    CreatePaymentSchedule chooser = new CreatePaymentSchedule();
+                    boolean flag = chooser.choosePaymentSchedule(availableSchedules, employeeList);
+                    if (flag)
+                        System.out.println("\n\n| ~ PAYMENT CHOICE UPDATED ~ |\n");
                     break;
                 case 10: // new payment schedule
                     CreatePaymentSchedule creator = new CreatePaymentSchedule();

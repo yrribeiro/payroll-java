@@ -3,13 +3,16 @@ package utils;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import objects.Employee;
+
+
 public class CreatePaymentSchedule {
     Scanner scanf = new Scanner(System.in);
 
     public static void setDefaultSchedule(ArrayList<String> scheduleList){
-        String hourlyEmployeeDefault = "semanal 1 sexta";
-        String wageEmployeeDefault = "mensal $";
-        String commissionedEmployeeDefault = "semanal 2 sexta";
+        String hourlyEmployeeDefault = "weekly 1 friday";
+        String wageEmployeeDefault = "monthly $";
+        String commissionedEmployeeDefault = "weekly 2 friday";
         scheduleList.add(0, hourlyEmployeeDefault);
         scheduleList.add(1, wageEmployeeDefault);
         scheduleList.add(2, commissionedEmployeeDefault);
@@ -70,10 +73,42 @@ public class CreatePaymentSchedule {
     }
 
     private void listAllOptions(ArrayList<String> scheduleList){
-        System.out.println("\n~~~~~~~   ~~~~~~~");
+        System.out.printf("%n~ Available options:%n");
+        System.out.println("~~~~~~~   ~~~~~~~");
         for (String option : scheduleList) {
             System.out.println(option);
         }
         System.out.println("~~~~~~~   ~~~~~~~\n\n");
+    }
+
+    public boolean choosePaymentSchedule(ArrayList<String> scheduleList, ArrayList<Employee> employeeList){
+        int foundEmployeeIndex = FindEmployee.findEmployee(employeeList);
+        if (foundEmployeeIndex < 0){
+            System.out.println("\n\n{!} Employee not registered yet.\n");
+        }else{
+            Employee foundEmployee = employeeList.get(foundEmployeeIndex);
+            System.out.println("\n\n|~ " + foundEmployee.getName().toUpperCase() + ", choose your new payment schedule from the list below:");
+            System.out.println("~ current schedule: " + foundEmployee.getPaymentSchedule());
+            listAllOptions(scheduleList);
+            System.out.printf("> ");
+            String userInput = scanf.nextLine();
+            Boolean typedCorrectly = isAvailable(scheduleList, userInput.toLowerCase());
+            if (typedCorrectly){
+                foundEmployee.setPaymentSchedule(userInput);
+                return true; // success
+            }else{
+                System.out.println("\n\n{!} Option not available. Contact the administrator\n");
+            }
+        }
+        return false; // failure
+    }
+
+    private boolean isAvailable(ArrayList<String> scheduleList, String userInput){
+        for (String option : scheduleList) {
+            if (option.equals(userInput)){
+                return true;
+            }
+        }
+        return false;
     }
 }
