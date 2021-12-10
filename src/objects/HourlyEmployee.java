@@ -7,7 +7,8 @@ public class HourlyEmployee extends Employee{
     private double hourlyIncome;
     private double workedHours;
     private int workedDays;
-    private int idealWorkedHours = 8*workedDays;
+    private short maxHours = 8;
+    private int idealWorkedHours = maxHours*workedDays;
 
     public void setHourlyIncome(double hourlyIncome) {
         this.hourlyIncome = hourlyIncome;
@@ -35,6 +36,14 @@ public class HourlyEmployee extends Employee{
 
     public int getIdealWorkedHours() {
         return idealWorkedHours;
+    }
+
+    // public short setMaxHours() {        for future project enhancement
+    //     return maxHours;
+    // }
+
+    public short getMaxHours() {
+        return maxHours;
     }
 
     @Override
