@@ -16,10 +16,9 @@ public class AddSalesCommission {
             System.out.println("\n\n{!} There's no commissioned employee registered under this ID.\n");
         }else{
             CommissionedEmployee foundEmployee = (CommissionedEmployee) employeeList.get(foundEmployeeIndex);
-            double percentage = foundEmployee.getRatePerSale();
             System.out.printf("|~ Insert the sales total price [XXXX,XX]: $");
             double salesPrice = scanf.nextDouble();
-            double commission = salesPrice*percentage;
+            double commission = salesPrice*foundEmployee.getRatePerSale();
             foundEmployee.setTotalCommissions(commission);
             System.out.println("\n\n|~ You received from this sale: $" + commission);
             return true;
