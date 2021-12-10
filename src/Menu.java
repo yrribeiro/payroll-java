@@ -50,10 +50,14 @@ public class Menu{
                     }
                     break;
                 case 3: // post time card
-                    // if (employeeList.isEmpty()){
-                    //     System.out.println("\n\n{!} Empty database.\n");
-                    // }else{
-                    // }
+                    if (employeeList.isEmpty()){
+                        System.out.println("\n\n{!} Empty database.\n");
+                    }else{
+                        TimeCard card = new TimeCard();
+                        boolean flag = card.addTimeCard(employeeList);
+                        if (flag)
+                            System.out.println("\n\n| ~ NEW TIME CARD ADDED ~ |\n");
+                    }
                     break;
                 case 4: // sales commission
                     if (employeeList.isEmpty()){
