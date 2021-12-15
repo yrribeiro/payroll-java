@@ -20,6 +20,10 @@ public class CommissionedEmployee extends WageEmployee{
         this.totalCommissions += totalCommissions;
     }
 
+    public void eraseTotalCommissions(){
+        this.totalCommissions = 0.0;
+    }
+
     @Override
     public void setPaymentSchedule(String paymentSchedule) {
         super.setPaymentSchedule(paymentSchedule);

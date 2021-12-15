@@ -6,9 +6,8 @@ public class HourlyEmployee extends Employee{
     Scanner scanf = new Scanner(System.in);
     private double hourlyIncome;
     private double workedHours;
-    private int workedDays;
     private short maxHours = 8;
-    private int idealWorkedHours = maxHours*workedDays;
+    private double grossWage;
 
     public void setHourlyIncome(double hourlyIncome) {
         this.hourlyIncome = hourlyIncome;
@@ -26,16 +25,20 @@ public class HourlyEmployee extends Employee{
         return workedHours;
     }
 
-    public void setWorkedDays() {
-        this.workedDays += 1;
+    public void eraseWorkedHours(){
+        this.workedHours = 0.0;
     }
 
-    public int getWorkedDays() {
-        return workedDays;
+    public double getGrossWage() {
+        return grossWage;
     }
 
-    public int getIdealWorkedHours() {
-        return idealWorkedHours;
+    public void setGrossWage(double grossWage) {
+        this.grossWage += grossWage;
+    }
+
+    public void eraseGrossWage(){
+        this.grossWage = 0.0;
     }
 
     // public short setMaxHours() {        for future project enhancement

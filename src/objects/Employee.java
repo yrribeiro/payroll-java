@@ -8,6 +8,7 @@ public class Employee{
     private int paymentType;
     private Boolean unionist;
     private String paymentSchedule;
+    private int workedDays;
 
     public void setUniqueID(int uniqueID) {
         this.uniqueID = uniqueID;
@@ -63,5 +64,17 @@ public class Employee{
 
     public String getPaymentSchedule() {
         return paymentSchedule;
+    }
+
+    public void setWorkedDays() {
+        this.workedDays += 1;
+    }
+
+    public int getWorkedDays() {
+        return workedDays;
+    }
+
+    public void eraseWorkedDays(){
+        this.workedDays = 0;
     }
 }

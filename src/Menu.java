@@ -84,6 +84,8 @@ public class Menu{
                     }
                     break;
                 case 7: // todays payroll
+                    RunPayroll todayPayroll = new RunPayroll();
+                    todayPayroll.runPayroll(availableSchedules, employeeList, unionistList);
                     break;
                 case 8: // undo redo
                     break;

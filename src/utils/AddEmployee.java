@@ -70,6 +70,8 @@ public class AddEmployee{
         System.out.println("~~ Type the monthly income [XXXX,XX]:");
         newEmployee.setMonthlyIncome(scanf.nextDouble());
 
+        
+
         return newEmployee;
     }
 

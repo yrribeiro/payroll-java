@@ -32,13 +32,15 @@ public class TimeCard {
             foundEmployee.setWorkedDays();
             foundEmployee.setWorkedHours(diffDouble);
 
-            System.out.println(String.format("\n\n|~ You received from this worked day: $%,.2f", showWorkedDayIncome(foundEmployee, diffDouble)));
+            double workedDayIncome = workedDayIncome(foundEmployee, diffDouble);
+            foundEmployee.setGrossWage(workedDayIncome);
+            System.out.println(String.format("\n\n|~ You received from this worked day: $%,.2f", workedDayIncome));
             return true;
         }
         return false;
     }
 
-    private double showWorkedDayIncome(HourlyEmployee foundEmployee, double workedHours){
+    private double workedDayIncome(HourlyEmployee foundEmployee, double workedHours){
         short maxHours = foundEmployee.getMaxHours();
         double hourlyIncome = foundEmployee.getHourlyIncome();
 
