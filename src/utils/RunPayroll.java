@@ -3,11 +3,7 @@ package utils;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import objects.CommissionedEmployee;
-import objects.Employee;
-import objects.HourlyEmployee;
-import objects.Unionist;
-import objects.WageEmployee;
+import objects.*;
 
 public class RunPayroll {
     Scanner scanf = new Scanner(System.in);
