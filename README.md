@@ -10,7 +10,7 @@ This is a work in progress. Come back later.
 |     5    |  Post a union service fee            | :heavy_check_mark: |
 |     6    |  Change employee info       | :heavy_check_mark: |
 |     7    |  Run today's payroll           | :heavy_check_mark: |
-|     8    |  Undo/Redo                     | :x: |
+|     8    |  Undo/Redo                     | :heavy_check_mark: |
 |     9    |  Choose payment schedule              | :heavy_check_mark: |
 |    10    |  New payment schedule | :heavy_check_mark: |
 |    11    |  Show all employees | :heavy_check_mark: |

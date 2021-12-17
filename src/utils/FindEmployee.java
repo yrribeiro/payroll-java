@@ -31,20 +31,22 @@ public class FindEmployee {
         return null;
     }
 
-    public void removeEmployee(ArrayList<Employee> employeeList, ArrayList<Unionist> unionistList){
+    public Boolean removeEmployee(ArrayList<Employee> employeeList, ArrayList<Unionist> unionistList){
         String confirmation;
         int foundEmployeeIndex;
+        Boolean flag = false;
 
         foundEmployeeIndex = findEmployee(employeeList);
         if (foundEmployeeIndex < 0){
             System.out.println("{!} Employee not found. Make sure to retype the ID correctly.");
         }else{
             Employee foundEmployee = employeeList.get(foundEmployeeIndex);
-            ListAllEmployee.listEmployee(foundEmployee, unionistList);
+            ListAllEmployee.listEmployee(foundEmployee);
             System.out.println("| Are you sure you want to delete this employee (including from the union)? [y/n]");
             confirmation = scanf.next().toLowerCase();
             if (confirmation.contains("y")){
                 employeeList.remove(foundEmployeeIndex);
+                flag = true;
                 removeUnionist(
                     Unionist.calculateUnionID(foundEmployee.getName(), foundEmployee.getUniqueID()),
                     unionistList
@@ -54,6 +56,7 @@ public class FindEmployee {
                 System.out.println("\n\n{!} Action canceled.\n");
             }
         }
+        return flag;
     }
 
     private void removeUnionist(String ID, ArrayList<Unionist> unionistList){
@@ -72,7 +75,7 @@ public class FindEmployee {
         }else{
             System.out.println("\n|~ Changing data of the following employee:");
             foundEmployee = employeeList.get(foundEmployeeIndex);
-            ListAllEmployee.listEmployee(foundEmployee, unionistList);
+            ListAllEmployee.listEmployee(foundEmployee);
             System.out.println("\n|~ Select what you want to change:\n 1  Name\n 2  Address\n 3  Job type\n 4  Payment method\n 5  Union membership");
             System.out.printf(" 6  Union ID%n 7  Union Fee%n> ");
             action = scanf.nextInt();

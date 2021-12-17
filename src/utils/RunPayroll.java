@@ -7,8 +7,8 @@ import objects.*;
 
 public class RunPayroll {
     Scanner scanf = new Scanner(System.in);
-    private static final int WEEK_DAYS = 5;
-    private static final int TOTAL_MONTH_WEEK_DAYS = 21;
+    private static final int WEEK_DAYS = 2;
+    private static final int TOTAL_MONTH_WEEK_DAYS = 2;
     private ArrayList<Employee> employeesToPay = new ArrayList<>();
 
     public void runPayroll(ArrayList<String> availableSchedules, ArrayList<Employee> employeeList, ArrayList<Unionist> unionistList){
@@ -44,7 +44,7 @@ public class RunPayroll {
     }
 
     private int splitScheduleString(String schedule){
-        String[] splitted = schedule.split("\s");
+        String[] splitted = schedule.split("\\s");
         int neededWorkedDays = 0;
         if (splitted.length>2){
             if (splitted[0].equals("weekly")){
