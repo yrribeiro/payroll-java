@@ -2,11 +2,7 @@ package utils;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import objects.CommissionedEmployee;
-import objects.Employee;
-import objects.HourlyEmployee;
-import objects.Unionist;
-import objects.WageEmployee;
+import objects.*;
 
 public class AddEmployee{
     Scanner scanf = new Scanner(System.in);
@@ -69,8 +65,6 @@ public class AddEmployee{
 
         System.out.println("~~ Type the monthly income [XXXX,XX]:");
         newEmployee.setMonthlyIncome(scanf.nextDouble());
-
-        
 
         return newEmployee;
     }
