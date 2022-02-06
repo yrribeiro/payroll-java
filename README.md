@@ -1,5 +1,5 @@
 # Payroll system
-:point_right: proglang: JAVA (openjdk 11.0.13)
+:point_right: done in openjdk 11.0.13
 
 ## Summary
 This system aims to ease the management of a company's employee payments. In addition, this system must manage employee data, such as timecards. Employees must receive their salary at the correct time, using the method they prefer, obeying rates and taxes deducted from the salary.
