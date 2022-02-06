@@ -47,7 +47,7 @@ public class TimeCard {
         if (workedHours > maxHours){
             return maxHours*hourlyIncome + (workedHours-maxHours)*hourlyIncome*1.5;
         }else{
-            return foundEmployee.getHourlyIncome()*workedHours;
+            return hourlyIncome*workedHours;
         }
     }
 }
