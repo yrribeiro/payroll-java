@@ -49,7 +49,7 @@ public class CreatePaymentSchedule {
         input = scanf.nextLine();
         newOption = input.split(":", -2);
         for (int i=0; i<3; i++){
-            if (!newOption[i].isEmpty()){
+            if (newOption[i].length() > 0){
                 scheduleList.remove(i);
                 scheduleList.add(i, newOption[i]);
             }
