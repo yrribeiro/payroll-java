@@ -146,12 +146,12 @@ public class FindEmployee {
                 case 5: // change union membership status
                     System.out.println("|~ Is an union member [y/n] ");
                     Boolean newStatus = scanf.hasNext("y");
-                    if (foundUnionStatus && !newStatus){
+                    if (foundUnionStatus && !newStatus){ // was a union member and now it's not
                         removeUnionist(
                             Unionist.calculateUnionID(foundName, foundID),
                             unionistList
                         );
-                    }else if (!foundUnionStatus && newStatus){
+                    }else if (!foundUnionStatus && newStatus){ // wasn't a union member and now it is
                         unionistList.add(update.addUnionist(foundName, foundID));
                     }
                     foundEmployee.setUnionist(newStatus);
