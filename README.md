@@ -4,9 +4,8 @@ This is a work in progress...
 ## Detected code smells
 | ID |             Code smell              |        Location        | Progress|
 | -------- | -------------------------------| :---:|:---:|
-|     1    |  If/else with negative condition               |(x2) CreatePayment; FindEmployee| :x: |
-|     2    |  :---:               |:---:| :x: |
-|     3    |  :---:               |:---:| :x: |
-|     4    |  :---:               |:---:| :x: |
-|     5    |  :---:               |:---:| :x: |
-|     6    |  :---:               |:---:| :x: |
+|     1    |  Negative conditional              |(x2) CreatePayment; FindEmployee| :x: |
+|     2    |  Long method               |(x2) TimeCard; FindEmployee | :x: |
+|     3    |  Duplication               |(x2) TimeCard; FindEmployee | :x: |
+|     4    |  Logic conditional not encapsulated               |FindEmployee | :x: |
+|     5    |  Long import               | AddEmployee | :x: |
