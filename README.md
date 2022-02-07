@@ -1,5 +1,8 @@
 # Payroll system
-This is a work in progress...
+:wrench: THIS IS A REFACTORING-FOCUSED BRANCH :wrench:
+To observe my progress during this project, the table below keep track of the detected code smells and their proposed solution.
+
+Mind the hyperlink at 'Issue Number' column, each one of them leads to the respective code smell issue, I explain there where and what have I fixed (or tried to).
 
 ## Detected code smells
 | ID |             Code smell              |        Location        | Progress| Issue Number |
